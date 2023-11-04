@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ConeVolley" load_steps=3 format=3 uid="uid://bia4rr3qfti0d"]
+
+[ext_resource type="PackedScene" uid="uid://dbkdktkhy5dtq" path="res://scenes/bullet.tscn" id="1_o2qvm"]
+[ext_resource type="Script" path="res://volleys/cone_volley.gd" id="2_qxc0h"]
+
+[resource]
+script = ExtResource("2_qxc0h")
+arc = 30.0
+num_bullets = 5
+bullet_scene = ExtResource("1_o2qvm")

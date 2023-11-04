@@ -1,11 +1,13 @@
 extends Node2D
 
+@export var volley : Volley
+@export var fire_cooldown = 0.5
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var fire_cooldown_remaining = 0
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	fire_cooldown_remaining -= delta
+
+	if (fire_cooldown_remaining <= 0):
+		volley.shoot(self.position, Vector2.DOWN, get_parent())
+		fire_cooldown_remaining = fire_cooldown
