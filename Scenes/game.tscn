@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq12ye3tg4jea"]
+[gd_scene load_steps=4 format=3 uid="uid://dq12ye3tg4jea"]
 
 [ext_resource type="PackedScene" uid="uid://dy2mf8lbb0bkj" path="res://scenes/bullet_spawner.tscn" id="1_q277m"]
 [ext_resource type="Resource" uid="uid://dt6q4avbvpysd" path="res://volley-chains/testVolleyChain.tres" id="2_2d4we"]
+[ext_resource type="PackedScene" uid="uid://dskxcumk8svhk" path="res://scenes/player.tscn" id="3_6xlg1"]
 
 [node name="Root" type="Node2D"]
 
 [node name="BulletSpawner" parent="." instance=ExtResource("1_q277m")]
 position = Vector2(587, -20)
 volley_chain = ExtResource("2_2d4we")
+
+[node name="Player" parent="." instance=ExtResource("3_6xlg1")]
+position = Vector2(605, 548)
