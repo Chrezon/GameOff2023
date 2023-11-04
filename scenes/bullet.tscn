@@ -1,17 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbkdktkhy5dtq"]
+[gd_scene load_steps=5 format=3 uid="uid://dbkdktkhy5dtq"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_0y63i"]
-[ext_resource type="Texture2D" uid="uid://chbrio5y8pw1h" path="res://images/laserRed01.png" id="2_ex0fl"]
+[ext_resource type="Texture2D" uid="uid://blwckh0up4yuv" path="res://images/laserRed08.png" id="2_o154c"]
+[ext_resource type="Script" path="res://scenes/auto_rotate.gd" id="3_006nw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mrdwt"]
-radius = 7.07107
+radius = 3.16228
 
 [node name="bullet" type="Area2D"]
 script = ExtResource("1_0y63i")
-speed = 500.0
+speed = 200.0
 
 [node name="graphics" type="Sprite2D" parent="."]
-texture = ExtResource("2_ex0fl")
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(0.73913, 0.73913)
+texture = ExtResource("2_o154c")
+script = ExtResource("3_006nw")
+degrees_per_second = 360.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mrdwt")

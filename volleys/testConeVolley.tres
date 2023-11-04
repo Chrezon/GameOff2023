@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_qxc0h")
-arc = 30.0
-random_in_arc = true
-num_bullets = 5
+arc = 45.0
+randomize_dir = true
+num_bullets = 3
 bullet_scene = ExtResource("1_o2qvm")

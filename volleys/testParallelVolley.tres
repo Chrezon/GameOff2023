@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="ParallelVolley" load_steps=3 format=3 uid="uid://b3mrm44o8to74"]
 
-[ext_resource type="PackedScene" uid="uid://dbkdktkhy5dtq" path="res://scenes/bullet.tscn" id="1_83262"]
 [ext_resource type="Script" path="res://volleys/parallel_volley.gd" id="1_e171u"]
+[ext_resource type="PackedScene" uid="uid://clclknhwktilt" path="res://scenes/bullet2.tscn" id="1_sg3rm"]
 
 [resource]
 script = ExtResource("1_e171u")
 width = 301.237
 randomize_pos = true
 num_bullets = 5
-bullet_scene = ExtResource("1_83262")
+bullet_scene = ExtResource("1_sg3rm")
