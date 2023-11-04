@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://volley-chains/volley-chain.gd" id="1_hhcw5"]
 [ext_resource type="PackedScene" uid="uid://clclknhwktilt" path="res://scenes/bullet2.tscn" id="1_ynwan"]
 [ext_resource type="Script" path="res://volleys/cone_volley.gd" id="2_6okkb"]
-[ext_resource type="Script" path="res://volleys/delay.gd" id="3_ugnww"]
+[ext_resource type="Script" path="res://volleys/delay_override.gd" id="3_ugnww"]
 [ext_resource type="PackedScene" uid="uid://dbkdktkhy5dtq" path="res://scenes/bullet.tscn" id="4_h5ubj"]
 [ext_resource type="Script" path="res://volleys/parallel_volley.gd" id="5_nopwg"]
 

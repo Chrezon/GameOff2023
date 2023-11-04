@@ -12,7 +12,7 @@ func shoot_next(origin: Vector2, direction: Vector2, root: Node2D) -> float:
 	
 	# peek next volly. if it's a delay override, use its delay instead, and 
 	# skip it next time (we don't wanna shoot a Delay)
-	if chain[next_idx] is Delay:
+	if chain[next_idx] is DelayOverride:
 		ret = chain[next_idx].delay
 		next_idx = _get_next_idx(next_idx)
 	

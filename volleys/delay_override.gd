@@ -1,3 +1,3 @@
 extends Volley
-class_name Delay
+class_name DelayOverride
 @export var delay : float
