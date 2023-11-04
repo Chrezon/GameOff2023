@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="VolleyChain" load_steps=15 format=3 uid="uid://dt6q4avbvpysd"]
+[gd_resource type="Resource" script_class="VolleyChain" load_steps=18 format=3 uid="uid://dt6q4avbvpysd"]
 
 [ext_resource type="Script" path="res://volley-chains/volley-chain.gd" id="1_hhcw5"]
 [ext_resource type="PackedScene" uid="uid://clclknhwktilt" path="res://scenes/bullet2.tscn" id="1_ynwan"]
@@ -7,59 +7,81 @@
 [ext_resource type="PackedScene" uid="uid://dbkdktkhy5dtq" path="res://scenes/bullet.tscn" id="4_h5ubj"]
 [ext_resource type="Script" path="res://volleys/parallel_volley.gd" id="5_nopwg"]
 
-[sub_resource type="Resource" id="Resource_t4psm"]
+[sub_resource type="Resource" id="Resource_yv1do"]
 script = ExtResource("2_6okkb")
 arc = 20.0
 randomize_dir = false
 num_bullets = 2
 bullet_scene = ExtResource("1_ynwan")
 
-[sub_resource type="Resource" id="Resource_fukcs"]
+[sub_resource type="Resource" id="Resource_o5t1b"]
+script = ExtResource("5_nopwg")
+width = 500.0
+randomize_pos = false
+num_bullets = 6
+bullet_scene = ExtResource("1_ynwan")
+
+[sub_resource type="Resource" id="Resource_1nche"]
 script = ExtResource("2_6okkb")
 arc = 30.0
 randomize_dir = false
 num_bullets = 3
 bullet_scene = ExtResource("1_ynwan")
 
-[sub_resource type="Resource" id="Resource_csvxy"]
+[sub_resource type="Resource" id="Resource_yyhrk"]
+script = ExtResource("5_nopwg")
+width = 500.0
+randomize_pos = false
+num_bullets = 5
+bullet_scene = ExtResource("1_ynwan")
+
+[sub_resource type="Resource" id="Resource_8a768"]
 script = ExtResource("2_6okkb")
-arc = 40.0
+arc = 50.0
 randomize_dir = false
 num_bullets = 5
 bullet_scene = ExtResource("1_ynwan")
 
-[sub_resource type="Resource" id="Resource_c8j26"]
-script = ExtResource("2_6okkb")
-arc = 45.0
-randomize_dir = true
-num_bullets = 5
-bullet_scene = ExtResource("4_h5ubj")
-
-[sub_resource type="Resource" id="Resource_5kyue"]
-script = ExtResource("5_nopwg")
-width = 300.0
-randomize_pos = false
-num_bullets = 5
-bullet_scene = ExtResource("1_ynwan")
-
-[sub_resource type="Resource" id="Resource_qwgpt"]
-script = ExtResource("3_ugnww")
-delay = 0.5
-num_bullets = 0
-
-[sub_resource type="Resource" id="Resource_gs7ww"]
+[sub_resource type="Resource" id="Resource_gxfuy"]
 script = ExtResource("5_nopwg")
 width = 500.0
 randomize_pos = false
-num_bullets = 7
+num_bullets = 4
 bullet_scene = ExtResource("1_ynwan")
 
-[sub_resource type="Resource" id="Resource_k0b2n"]
+[sub_resource type="Resource" id="Resource_q3bi2"]
 script = ExtResource("3_ugnww")
-delay = 0.5
-num_bullets = 0
+delay = 0.15
+
+[sub_resource type="Resource" id="Resource_fybj6"]
+script = ExtResource("2_6okkb")
+arc = 30.0
+randomize_dir = true
+num_bullets = 1
+bullet_scene = ExtResource("4_h5ubj")
+
+[sub_resource type="Resource" id="Resource_08gjo"]
+script = ExtResource("2_6okkb")
+arc = 40.0
+randomize_dir = true
+num_bullets = 1
+bullet_scene = ExtResource("4_h5ubj")
+
+[sub_resource type="Resource" id="Resource_khs06"]
+script = ExtResource("2_6okkb")
+arc = 60.0
+randomize_dir = true
+num_bullets = 2
+bullet_scene = ExtResource("4_h5ubj")
+
+[sub_resource type="Resource" id="Resource_550vj"]
+script = ExtResource("2_6okkb")
+arc = 70.0
+randomize_dir = true
+num_bullets = 2
+bullet_scene = ExtResource("4_h5ubj")
 
 [resource]
 script = ExtResource("1_hhcw5")
-default_delay = 0.2
-chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_t4psm"), SubResource("Resource_fukcs"), SubResource("Resource_csvxy"), SubResource("Resource_c8j26"), SubResource("Resource_5kyue"), SubResource("Resource_qwgpt"), SubResource("Resource_gs7ww"), SubResource("Resource_k0b2n")])
+default_delay = 0.4
+chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_yv1do"), SubResource("Resource_o5t1b"), SubResource("Resource_1nche"), SubResource("Resource_yyhrk"), SubResource("Resource_8a768"), SubResource("Resource_gxfuy"), SubResource("Resource_q3bi2"), SubResource("Resource_fybj6"), SubResource("Resource_q3bi2"), SubResource("Resource_08gjo"), SubResource("Resource_q3bi2"), SubResource("Resource_khs06"), SubResource("Resource_q3bi2"), SubResource("Resource_550vj"), SubResource("Resource_q3bi2"), SubResource("Resource_550vj"), SubResource("Resource_q3bi2"), SubResource("Resource_550vj")])

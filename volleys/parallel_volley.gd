@@ -1,4 +1,4 @@
-extends Volley
+extends BulletVolley
 
 class_name ParallelVolley
 
