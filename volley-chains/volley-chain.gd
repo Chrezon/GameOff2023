@@ -19,8 +19,7 @@ func shoot_next(origin: Vector2, direction: Vector2, root: Node2D) -> float:
 	chain[_idx].shoot(origin, direction, root)
 		
 	_idx = next_idx
-	
-	print(str(_idx) + " returning " + str(ret))
+
 	return ret
 	
 func _get_next_idx(idx: int):
