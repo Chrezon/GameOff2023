@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://1stli0pwywt"]
+
+[ext_resource type="Texture2D" uid="uid://dewn5qsm3jjhx" path="res://elaine-playground/assets/test-bg-hades.png" id="1_74k4p"]
+[ext_resource type="Shader" path="res://elaine-playground/assets/shaders/pixelize.gdshader" id="2_h66kt"]
+[ext_resource type="Script" path="res://elaine-playground/scripts/shaders.gd" id="2_l75re"]
+[ext_resource type="Texture2D" uid="uid://r2jcdgadfen" path="res://elaine-playground/assets/white.png" id="3_tbhak"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68cg7"]
+shader = ExtResource("2_h66kt")
+shader_parameter/size = 0.008
+
+[sub_resource type="Animation" id="Animation_givmq"]
+resource_name = "Anim"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.001, 0.04]
+}
+
+[sub_resource type="Animation" id="Animation_eoc3n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.008]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8gvh"]
+_data = {
+"Anim": SubResource("Animation_givmq"),
+"RESET": SubResource("Animation_eoc3n")
+}
+
+[node name="testScene" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_74k4p")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Shaders" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_l75re")
+
+[node name="TextureRect" type="TextureRect" parent="Shaders"]
+material = SubResource("ShaderMaterial_68cg7")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_tbhak")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Shaders/TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_m8gvh")
+}
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="Player"]
+offset_right = 8.0
+offset_bottom = 8.0
