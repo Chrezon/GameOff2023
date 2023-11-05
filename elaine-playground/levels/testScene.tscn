@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://1stli0pwywt"]
+[gd_scene load_steps=10 format=3 uid="uid://1stli0pwywt"]
 
 [ext_resource type="Texture2D" uid="uid://dewn5qsm3jjhx" path="res://elaine-playground/assets/test-bg-hades.png" id="1_74k4p"]
 [ext_resource type="Shader" path="res://elaine-playground/assets/shaders/pixelize.gdshader" id="2_h66kt"]
 [ext_resource type="Script" path="res://elaine-playground/scripts/shaders.gd" id="2_l75re"]
 [ext_resource type="Texture2D" uid="uid://r2jcdgadfen" path="res://elaine-playground/assets/white.png" id="3_tbhak"]
+[ext_resource type="Script" path="res://elaine-playground/scripts/test-player.gd" id="5_odrsw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_68cg7"]
 shader = ExtResource("2_h66kt")
@@ -83,7 +84,14 @@ libraries = {
 }
 
 [node name="Player" type="Node2D" parent="."]
+position = Vector2(20, 20)
+script = ExtResource("5_odrsw")
 
 [node name="Button" type="Button" parent="Player"]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 82.0
+offset_bottom = 31.0
+text = "Start Blur"
+
+[connection signal="slowTimeBegin" from="Player" to="Shaders" method="_on_player_slow_time_begin"]
+[connection signal="slowTimeEnd" from="Player" to="Shaders" method="_on_player_slow_time_end"]
+[connection signal="pressed" from="Player/Button" to="Player" method="_on_button_pressed"]
