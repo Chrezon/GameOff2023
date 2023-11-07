@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 signal hit
 
-signal change_time
+signal change_time(scale_delta)
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -29,3 +29,15 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+	
+	if Input.is_action_pressed("slow_down"):
+		change_time.emit(0.9)
+		
+	if Input.is_action_pressed("speed_up"):
+		change_time.emit(1.1)
+
+
+func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	hit.emit() # Replace with function body.
+	$CollisionShape2D.set_deferred("disabled", true)
+
