@@ -16,13 +16,13 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var horizontal_dir = Input.get_axis("ui_left", "ui_right")
+	var horizontal_dir = Input.get_axis("move_left", "move_right")
 	if horizontal_dir:
 		velocity.x = horizontal_dir * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	var vertical_dir = Input.get_axis("ui_up", "ui_down")
+	var vertical_dir = Input.get_axis("move_up", "move_down")
 	if vertical_dir:
 		velocity.y = vertical_dir * SPEED
 	else:
@@ -37,7 +37,8 @@ func _physics_process(delta):
 		change_time.emit(1.1)
 
 
-func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	hit.emit() # Replace with function body.
-	$CollisionShape2D.set_deferred("disabled", true)
+func handle_bullet_collision():
+	hit.emit()
+	#$CollisionShape2D.set_deferred("disabled", true)
+	print("player got hit by a bullet")
 

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqjyw"]
 size = Vector2(16, 16)
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_kjj20")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,5 +15,3 @@ texture = ExtResource("1_hti24")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vqjyw")
-
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
