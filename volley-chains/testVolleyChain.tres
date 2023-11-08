@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="VolleyChain" load_steps=18 format=3 uid="uid://dt6q4avbvpysd"]
 
 [ext_resource type="Script" path="res://volley-chains/volley-chain.gd" id="1_hhcw5"]
-[ext_resource type="PackedScene" uid="uid://clclknhwktilt" path="res://scenes/bullet2.tscn" id="1_ynwan"]
+[ext_resource type="PackedScene" uid="uid://clclknhwktilt" path="res://scenes/laser_bullet.tscn" id="1_qq3bt"]
 [ext_resource type="Script" path="res://volleys/cone_volley.gd" id="2_6okkb"]
 [ext_resource type="Script" path="res://volleys/delay_override.gd" id="3_ugnww"]
-[ext_resource type="PackedScene" uid="uid://dbkdktkhy5dtq" path="res://scenes/bullet.tscn" id="4_h5ubj"]
+[ext_resource type="PackedScene" uid="uid://cs8vev2hyqpxt" path="res://scenes/spinny_bullet.tscn" id="5_02e12"]
 [ext_resource type="Script" path="res://volleys/parallel_volley.gd" id="5_nopwg"]
 
 [sub_resource type="Resource" id="Resource_yv1do"]
@@ -12,42 +12,42 @@ script = ExtResource("2_6okkb")
 arc = 20.0
 randomize_dir = false
 num_bullets = 2
-bullet_scene = ExtResource("1_ynwan")
+bullet_scene = ExtResource("1_qq3bt")
 
 [sub_resource type="Resource" id="Resource_o5t1b"]
 script = ExtResource("5_nopwg")
 width = 500.0
 randomize_pos = false
 num_bullets = 6
-bullet_scene = ExtResource("1_ynwan")
+bullet_scene = ExtResource("1_qq3bt")
 
 [sub_resource type="Resource" id="Resource_1nche"]
 script = ExtResource("2_6okkb")
 arc = 30.0
 randomize_dir = false
 num_bullets = 3
-bullet_scene = ExtResource("1_ynwan")
+bullet_scene = ExtResource("1_qq3bt")
 
 [sub_resource type="Resource" id="Resource_yyhrk"]
 script = ExtResource("5_nopwg")
 width = 500.0
 randomize_pos = false
 num_bullets = 5
-bullet_scene = ExtResource("1_ynwan")
+bullet_scene = ExtResource("1_qq3bt")
 
 [sub_resource type="Resource" id="Resource_8a768"]
 script = ExtResource("2_6okkb")
 arc = 50.0
 randomize_dir = false
 num_bullets = 5
-bullet_scene = ExtResource("1_ynwan")
+bullet_scene = ExtResource("1_qq3bt")
 
 [sub_resource type="Resource" id="Resource_gxfuy"]
 script = ExtResource("5_nopwg")
 width = 500.0
 randomize_pos = false
 num_bullets = 4
-bullet_scene = ExtResource("1_ynwan")
+bullet_scene = ExtResource("1_qq3bt")
 
 [sub_resource type="Resource" id="Resource_q3bi2"]
 script = ExtResource("3_ugnww")
@@ -58,28 +58,28 @@ script = ExtResource("2_6okkb")
 arc = 30.0
 randomize_dir = true
 num_bullets = 1
-bullet_scene = ExtResource("4_h5ubj")
+bullet_scene = ExtResource("5_02e12")
 
 [sub_resource type="Resource" id="Resource_08gjo"]
 script = ExtResource("2_6okkb")
 arc = 40.0
 randomize_dir = true
 num_bullets = 1
-bullet_scene = ExtResource("4_h5ubj")
+bullet_scene = ExtResource("5_02e12")
 
 [sub_resource type="Resource" id="Resource_khs06"]
 script = ExtResource("2_6okkb")
 arc = 60.0
 randomize_dir = true
 num_bullets = 2
-bullet_scene = ExtResource("4_h5ubj")
+bullet_scene = ExtResource("5_02e12")
 
 [sub_resource type="Resource" id="Resource_550vj"]
 script = ExtResource("2_6okkb")
 arc = 70.0
 randomize_dir = true
 num_bullets = 2
-bullet_scene = ExtResource("4_h5ubj")
+bullet_scene = ExtResource("5_02e12")
 
 [resource]
 script = ExtResource("1_hhcw5")

@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://clclknhwktilt"]
 
-[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_tlvca"]
-[ext_resource type="Texture2D" uid="uid://chbrio5y8pw1h" path="res://images/laserRed01.png" id="2_o2br0"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_mxpm5"]
+[ext_resource type="Texture2D" uid="uid://chbrio5y8pw1h" path="res://images/laserRed01.png" id="2_tn5ku"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mrdwt"]
-radius = 3.16228
+radius = 5.0
 
 [node name="bullet" type="Area2D"]
-script = ExtResource("1_tlvca")
+script = ExtResource("1_mxpm5")
 speed = 500.0
 
 [node name="graphics" type="Sprite2D" parent="."]
 position = Vector2(-19, 0)
-texture = ExtResource("2_o2br0")
+texture = ExtResource("2_tn5ku")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mrdwt")
@@ -22,4 +22,5 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="TimedDestruct" to="." method="_on_timer_timeout"]
