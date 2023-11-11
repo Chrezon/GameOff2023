@@ -21,6 +21,9 @@ globals="*res://scripts/globals.gd"
 
 [display]
 
+window/size/viewport_width=583
+window/size/viewport_height=778
+window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [input]

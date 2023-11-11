@@ -7,8 +7,8 @@
 [node name="Root" type="Node2D"]
 
 [node name="BulletSpawner" parent="." instance=ExtResource("1_q277m")]
-position = Vector2(587, -20)
+position = Vector2(302, -46)
 volley_chain = ExtResource("2_2d4we")
 
 [node name="Player" parent="." instance=ExtResource("3_6xlg1")]
-position = Vector2(605, 548)
+position = Vector2(290, 689)
