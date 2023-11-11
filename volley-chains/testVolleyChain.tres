@@ -83,5 +83,6 @@ bullet_scene = ExtResource("5_02e12")
 
 [resource]
 script = ExtResource("1_hhcw5")
+targeting = "AT PLAYER"
 default_delay = 0.4
 chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_yv1do"), SubResource("Resource_o5t1b"), SubResource("Resource_1nche"), SubResource("Resource_yyhrk"), SubResource("Resource_8a768"), SubResource("Resource_gxfuy"), SubResource("Resource_q3bi2"), SubResource("Resource_fybj6"), SubResource("Resource_q3bi2"), SubResource("Resource_08gjo"), SubResource("Resource_q3bi2"), SubResource("Resource_khs06"), SubResource("Resource_q3bi2"), SubResource("Resource_550vj"), SubResource("Resource_q3bi2"), SubResource("Resource_550vj"), SubResource("Resource_q3bi2"), SubResource("Resource_550vj")])
