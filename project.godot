@@ -58,6 +58,13 @@ change_speed={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Bullets"
+2d_physics/size/mode=2
+2d_physics/size/viewport_height=778
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
