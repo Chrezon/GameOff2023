@@ -18,7 +18,7 @@ func _physics_process(delta):
 	
 	velocity = velocity.move_toward(targetVel, ACCELERATION * delta)
 	move_and_slide()
-	
+
 	position.x = clamp(position.x, sprite_size.x / 2, globals.viewport_size.x - sprite_size.x / 2)
 	position.y = clamp(position.y, sprite_size.y / 2, globals.viewport_size.y - sprite_size.y / 2)
 
