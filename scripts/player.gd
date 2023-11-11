@@ -5,9 +5,7 @@ extends CharacterBody2D
 
 signal hit
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 0 #ProjectSettings.get_setting("physics/2d/default_gravity")
-
+@onready var sprite_size = $Sprite2D.get_rect().size * $Sprite2D.scale
 
 func _physics_process(delta):
 	var targetVel = Vector2.ZERO
@@ -20,7 +18,9 @@ func _physics_process(delta):
 	
 	velocity = velocity.move_toward(targetVel, ACCELERATION * delta)
 	move_and_slide()
-
+	
+	position.x = clamp(position.x, sprite_size.x / 2, globals.viewport_size.x - sprite_size.x / 2)
+	position.y = clamp(position.y, sprite_size.y / 2, globals.viewport_size.y - sprite_size.y / 2)
 
 func handle_bullet_collision():
 	hit.emit()

@@ -3,6 +3,7 @@ extends Node
 signal change_time()
 
 var time_scale = 1.0
+@onready var viewport_size = get_viewport().size
 
 @export var MIN_TIME_SCALE = 0.1
 
