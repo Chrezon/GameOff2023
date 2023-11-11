@@ -6,4 +6,4 @@ extends Sprite2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	rotate(delta * rads_per_second)
+	rotate(delta * rads_per_second * globals.time_scale)

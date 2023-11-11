@@ -5,15 +5,12 @@ extends CharacterBody2D
 
 signal hit
 
-signal change_time(scale_delta)
-
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 0 #ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
-	var targetVel: Vector2
+	var targetVel = Vector2.ZERO
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -23,12 +20,6 @@ func _physics_process(delta):
 	
 	velocity = velocity.move_toward(targetVel, ACCELERATION * delta)
 	move_and_slide()
-	
-	if Input.is_action_pressed("slow_down"):
-		change_time.emit(0.9)
-		
-	if Input.is_action_pressed("speed_up"):
-		change_time.emit(1.1)
 
 
 func handle_bullet_collision():

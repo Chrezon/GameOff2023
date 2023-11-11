@@ -15,4 +15,4 @@ script = ExtResource("3_37y5u")
 degrees_per_second = 360.0
 
 [node name="TimedDestruct" parent="." index="2"]
-wait_time = 10.0
+wait_time = 30.0
