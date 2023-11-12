@@ -12,7 +12,6 @@ resource_name = "PitchShift"
 pitch_scale = 0.92
 
 [resource]
-bus/0/send = &"M"
 bus/0/effect/0/effect = SubResource("AudioEffectLowPassFilter_e5ns4")
 bus/0/effect/0/enabled = true
 bus/0/effect/1/effect = SubResource("AudioEffectReverb_2qlqw")
