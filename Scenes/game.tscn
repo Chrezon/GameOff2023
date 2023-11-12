@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq12ye3tg4jea"]
+[gd_scene load_steps=6 format=3 uid="uid://dq12ye3tg4jea"]
 
-[ext_resource type="PackedScene" uid="uid://dy2mf8lbb0bkj" path="res://scenes/bullet_spawner.tscn" id="1_q277m"]
+[ext_resource type="PackedScene" uid="uid://dy2mf8lbb0bkj" path="res://Scenes/bullet_spawner.tscn" id="1_q277m"]
 [ext_resource type="Resource" uid="uid://dt6q4avbvpysd" path="res://volley-chains/testVolleyChain.tres" id="2_2d4we"]
-[ext_resource type="PackedScene" uid="uid://dskxcumk8svhk" path="res://scenes/player.tscn" id="3_6xlg1"]
+[ext_resource type="PackedScene" uid="uid://dskxcumk8svhk" path="res://Scenes/player.tscn" id="3_6xlg1"]
 [ext_resource type="AudioStream" uid="uid://3u03humnxqpx" path="res://audio/Sonic R _Super Sonic Racing_ Music.mp3" id="4_6yciy"]
+[ext_resource type="PackedScene" uid="uid://qa6itpvncmyv" path="res://Scenes/shaders.tscn" id="5_gd8nm"]
 
 [node name="Root" type="Node2D"]
 
@@ -17,3 +18,5 @@ position = Vector2(290, 689)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_6yciy")
 autoplay = true
+
+[node name="Shaders" parent="." instance=ExtResource("5_gd8nm")]

@@ -13,8 +13,6 @@ var time_scale = 1.0
 
 # TODO gradually slow down time instead of snapping
 func _process(delta):
-	# var change_speed = 	Input.is_action_pressed("change_speed")
-	# time_scale = MIN_TIME_SCALE if change_speed else 1
 	if (Input.is_action_just_pressed("change_speed")):
 		time_scale = MIN_TIME_SCALE
 		change_time_begin.emit()
