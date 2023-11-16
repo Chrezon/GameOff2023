@@ -18,7 +18,13 @@ func shoot_next(player_pos: Vector2, root: Node2D):
 		next_idx = _get_next_idx(next_idx)
 	
 	var direction = Vector2.DOWN if targeting == "DOWN" else player_pos - chain[_idx].get_origin()
-	chain[_idx].shoot(direction, root)
+	
+	if chain[_idx] is BulletVolley:
+		chain[_idx].shoot(direction, root)
+	elif chain[_idx] == null:
+		printerr("Empty entry in volley chain!")
+	else:
+		printerr("Incorrect configuration on volley chain!")
 	
 	var ended = next_idx <= _idx
 	_idx = next_idx

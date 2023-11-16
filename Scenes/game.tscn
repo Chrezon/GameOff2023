@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8svwbo5lld2r"]
+[gd_scene load_steps=11 format=3 uid="uid://b8svwbo5lld2r"]
 
 [ext_resource type="PackedScene" uid="uid://dy2mf8lbb0bkj" path="res://scenes/bullet_spawner.tscn" id="1_q277m"]
 [ext_resource type="Resource" uid="uid://dt6q4avbvpysd" path="res://volley-chains/testVolleyChain.tres" id="2_2d4we"]
@@ -9,12 +9,13 @@
 [ext_resource type="Resource" uid="uid://cq1y2ak3ot7gf" path="res://volley-chains/cone-left.tres" id="5_f8db0"]
 [ext_resource type="PackedScene" uid="uid://qa6itpvncmyv" path="res://scenes/shaders.tscn" id="5_gd8nm"]
 [ext_resource type="Resource" uid="uid://c5k2b451pdsn1" path="res://volley-chains/cone-right.tres" id="6_feaxp"]
+[ext_resource type="Resource" uid="uid://878nbraj7wlw" path="res://volley-chains/block.tres" id="7_fqfc1"]
 
 [node name="Root" type="Node2D"]
 
 [node name="BulletSpawner" parent="." instance=ExtResource("1_q277m")]
 position = Vector2(302, -46)
-volley_chains = Array[Resource("res://volley-chains/volley-chain.gd")]([ExtResource("2_2d4we"), ExtResource("4_5gpk5"), ExtResource("3_k3x7a"), ExtResource("5_f8db0"), ExtResource("6_feaxp")])
+volley_chains = Array[Resource("res://volley-chains/volley-chain.gd")]([ExtResource("2_2d4we"), ExtResource("4_5gpk5"), ExtResource("3_k3x7a"), ExtResource("7_fqfc1"), ExtResource("5_f8db0"), ExtResource("6_feaxp")])
 
 [node name="Player" parent="." instance=ExtResource("3_6xlg1")]
 position = Vector2(290, 689)
