@@ -14,7 +14,7 @@
 
 [node name="BulletSpawner" parent="." instance=ExtResource("1_q277m")]
 position = Vector2(302, -46)
-volley_chains = Array[Resource("res://volley-chains/volley-chain.gd")]([ExtResource("2_2d4we"), ExtResource("3_k3x7a"), ExtResource("4_5gpk5"), ExtResource("5_f8db0"), ExtResource("6_feaxp")])
+volley_chains = Array[Resource("res://volley-chains/volley-chain.gd")]([ExtResource("2_2d4we"), ExtResource("4_5gpk5"), ExtResource("3_k3x7a"), ExtResource("5_f8db0"), ExtResource("6_feaxp")])
 
 [node name="Player" parent="." instance=ExtResource("3_6xlg1")]
 position = Vector2(290, 689)

@@ -17,7 +17,7 @@ bullet_scene = ExtResource("1_qq3bt")
 
 [sub_resource type="Resource" id="Resource_o5t1b"]
 script = ExtResource("5_nopwg")
-width = 500.0
+width = 1.0
 randomize_pos = false
 num_bullets = 6
 left_right = 0.5
@@ -33,7 +33,7 @@ bullet_scene = ExtResource("1_qq3bt")
 
 [sub_resource type="Resource" id="Resource_yyhrk"]
 script = ExtResource("5_nopwg")
-width = 500.0
+width = 1.0
 randomize_pos = false
 num_bullets = 5
 left_right = 0.5
@@ -49,7 +49,7 @@ bullet_scene = ExtResource("1_qq3bt")
 
 [sub_resource type="Resource" id="Resource_gxfuy"]
 script = ExtResource("5_nopwg")
-width = 500.0
+width = 1.0
 randomize_pos = false
 num_bullets = 4
 left_right = 0.5

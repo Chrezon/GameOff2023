@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_sg4ap"]
 script = ExtResource("2_wip55")
-width = 566.038
+width = 1.0
 randomize_pos = false
 num_bullets = 12
 left_right = 0.5
@@ -15,5 +15,5 @@ bullet_scene = ExtResource("1_hsfh0")
 [resource]
 script = ExtResource("1_qh75k")
 targeting = "DOWN"
-default_delay = 2.0
+default_delay = 1.0
 chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_sg4ap")])
