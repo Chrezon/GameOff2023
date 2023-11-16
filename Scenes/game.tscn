@@ -19,5 +19,6 @@ position = Vector2(290, 689)
 position = Vector2(-290, -689)
 stream = ExtResource("4_6yciy")
 autoplay = true
+bus = &"BGM"
 
 [node name="Shaders" parent="." instance=ExtResource("5_gd8nm")]

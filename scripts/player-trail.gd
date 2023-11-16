@@ -6,8 +6,6 @@ extends Line2D
 @onready var g_curve = Curve2D.new()
 
 func _process(delta):
-	print(g_curve.get_point_count())
-	
 	for i in range(g_curve.get_point_count() - 1, -1, -1):
 		var g_point = g_curve.get_point_position(i)
 		g_point.y += scroll_speed * delta * globals.time_scale
