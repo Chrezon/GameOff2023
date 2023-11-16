@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="VolleyChain" load_steps=5 format=3 uid="uid://co1adwyr62chv"]
+
+[ext_resource type="PackedScene" uid="uid://clclknhwktilt" path="res://scenes/laser_bullet.tscn" id="1_hsfh0"]
+[ext_resource type="Script" path="res://volley-chains/volley-chain.gd" id="1_qh75k"]
+[ext_resource type="Script" path="res://volleys/parallel_volley.gd" id="2_wip55"]
+
+[sub_resource type="Resource" id="Resource_sg4ap"]
+script = ExtResource("2_wip55")
+width = 566.038
+randomize_pos = false
+num_bullets = 12
+bullet_scene = ExtResource("1_hsfh0")
+
+[resource]
+script = ExtResource("1_qh75k")
+targeting = "DOWN"
+default_delay = 2.0
+chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_sg4ap")])

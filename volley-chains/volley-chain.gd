@@ -7,7 +7,7 @@ class_name VolleyChain
 var _idx = 0
 
 # returns the delay required
-func shoot_next(origin: Vector2, player_pos: Vector2, root: Node2D) -> float:
+func shoot_next(origin: Vector2, player_pos: Vector2, root: Node2D):
 	var next_idx = _get_next_idx(_idx)
 	var ret = default_delay
 
@@ -19,13 +19,14 @@ func shoot_next(origin: Vector2, player_pos: Vector2, root: Node2D) -> float:
 	
 	var direction = Vector2.DOWN if targeting == "DOWN" else player_pos - origin
 	chain[_idx].shoot(origin, direction, root)
-		
+	
+	var ended 
 	_idx = next_idx
 
-	return ret
+	return [ret, _idx == -1]
 	
-func _get_next_idx(idx: int):
+func _get_next_idx(idx: int) -> int:
 	idx += 1
 	if idx >= len(chain):
-		idx = 0
+		idx = -1
 	return idx
