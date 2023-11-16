@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="VolleyChain" load_steps=9 format=3 uid="uid://cn524y7djws6m"]
+
+[ext_resource type="Script" path="res://volleys/cone_volley.gd" id="1_t4v8b"]
+[ext_resource type="PackedScene" uid="uid://clclknhwktilt" path="res://scenes/laser_bullet.tscn" id="1_vn4br"]
+[ext_resource type="Script" path="res://volley-chains/volley-chain.gd" id="2_dr6j1"]
+[ext_resource type="Script" path="res://volleys/delay_override.gd" id="3_4mcoy"]
+
+[sub_resource type="Resource" id="Resource_dgd6k"]
+script = ExtResource("1_t4v8b")
+arc = 88.302
+randomize_dir = null
+num_bullets = 10
+left_right = 0.0
+bullet_scene = ExtResource("1_vn4br")
+
+[sub_resource type="Resource" id="Resource_r7vtw"]
+script = ExtResource("1_t4v8b")
+arc = 94.119
+randomize_dir = false
+num_bullets = 10
+left_right = 0.5
+bullet_scene = ExtResource("1_vn4br")
+
+[sub_resource type="Resource" id="Resource_b2a11"]
+script = ExtResource("1_t4v8b")
+arc = 112.941
+randomize_dir = false
+num_bullets = 10
+left_right = 1.0
+bullet_scene = ExtResource("1_vn4br")
+
+[sub_resource type="Resource" id="Resource_tlvam"]
+script = ExtResource("3_4mcoy")
+delay = 1.0
+
+[resource]
+script = ExtResource("2_dr6j1")
+targeting = "DOWN"
+default_delay = 0.2
+chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_dgd6k"), SubResource("Resource_r7vtw"), SubResource("Resource_b2a11"), SubResource("Resource_tlvam")])

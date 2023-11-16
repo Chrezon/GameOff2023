@@ -1,18 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq12ye3tg4jea"]
+[gd_scene load_steps=10 format=3 uid="uid://b8svwbo5lld2r"]
 
 [ext_resource type="PackedScene" uid="uid://dy2mf8lbb0bkj" path="res://scenes/bullet_spawner.tscn" id="1_q277m"]
 [ext_resource type="Resource" uid="uid://dt6q4avbvpysd" path="res://volley-chains/testVolleyChain.tres" id="2_2d4we"]
 [ext_resource type="PackedScene" uid="uid://cni0jemq8506v" path="res://scenes/player.tscn" id="3_6xlg1"]
-[ext_resource type="Resource" uid="uid://cn524y7djws6m" path="res://volley-chains/testVolleyChain2.tres" id="3_s80eb"]
+[ext_resource type="Resource" uid="uid://cn524y7djws6m" path="res://volley-chains/big-cone.tres" id="3_k3x7a"]
+[ext_resource type="Resource" uid="uid://co1adwyr62chv" path="res://volley-chains/big-rain.tres" id="4_5gpk5"]
 [ext_resource type="AudioStream" uid="uid://3u03humnxqpx" path="res://audio/Sonic R _Super Sonic Racing_ Music.mp3" id="4_6yciy"]
-[ext_resource type="Resource" uid="uid://co1adwyr62chv" path="res://volley-chains/testVolleyChain3.tres" id="4_djkgn"]
+[ext_resource type="Resource" uid="uid://cq1y2ak3ot7gf" path="res://volley-chains/cone-left.tres" id="5_f8db0"]
 [ext_resource type="PackedScene" uid="uid://qa6itpvncmyv" path="res://scenes/shaders.tscn" id="5_gd8nm"]
+[ext_resource type="Resource" uid="uid://c5k2b451pdsn1" path="res://volley-chains/cone-right.tres" id="6_feaxp"]
 
 [node name="Root" type="Node2D"]
 
 [node name="BulletSpawner" parent="." instance=ExtResource("1_q277m")]
 position = Vector2(302, -46)
-volley_chains = Array[Resource("res://volley-chains/volley-chain.gd")]([ExtResource("2_2d4we"), ExtResource("3_s80eb"), ExtResource("4_djkgn")])
+volley_chains = Array[Resource("res://volley-chains/volley-chain.gd")]([ExtResource("2_2d4we"), ExtResource("3_k3x7a"), ExtResource("4_5gpk5"), ExtResource("5_f8db0"), ExtResource("6_feaxp")])
 
 [node name="Player" parent="." instance=ExtResource("3_6xlg1")]
 position = Vector2(290, 689)
@@ -25,3 +27,7 @@ autoplay = true
 bus = &"BGM"
 
 [node name="Shaders" parent="." instance=ExtResource("5_gd8nm")]
+offset_left = -16.0
+offset_top = 3.0
+offset_right = -16.0
+offset_bottom = 3.0

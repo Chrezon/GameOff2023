@@ -9,6 +9,7 @@ script = ExtResource("2_wip55")
 width = 566.038
 randomize_pos = false
 num_bullets = 12
+left_right = 0.5
 bullet_scene = ExtResource("1_hsfh0")
 
 [resource]

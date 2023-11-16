@@ -11,7 +11,7 @@ func _process(delta):
 	fire_cooldown_remaining -= delta * globals.time_scale
 	
 	if (fire_cooldown_remaining <= 0):
-		var result = current_chain.shoot_next(self.position, player_scene.position, get_parent())
+		var result = current_chain.shoot_next(player_scene.position, get_parent())
 		fire_cooldown_remaining = result[0]
 		
 		if result[1]:
