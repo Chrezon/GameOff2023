@@ -5,7 +5,7 @@ class_name ConeVolley
 @export_range(0, 360) var arc : float
 @export var randomize_dir : bool
 
-func shoot(direction: Vector2, root: Node2D):
+func shoot(direction: Vector2, root: Node):
 	var origin = get_origin()
 	var angle_step = deg_to_rad(arc) / (num_bullets - 1)
 	var angle_min = direction.angle() - deg_to_rad(arc) / 2

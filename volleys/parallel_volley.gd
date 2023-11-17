@@ -5,7 +5,7 @@ class_name ParallelVolley
 @export_range(0.0, 1.0) var width : float = 1.0
 @export var randomize_pos : bool
 
-func shoot(direction: Vector2, root: Node2D):
+func shoot(direction: Vector2, root: Node):
 	var width_px : float = width * globals.viewport_size.x
 	var origin = get_origin()
 	var pos_step = width_px / (num_bullets - 1)

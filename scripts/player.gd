@@ -31,6 +31,6 @@ func _physics_process(delta):
 
 func handle_bullet_collision():
 	hit.emit()
-	#$CollisionShape2D.set_deferred("disabled", true)
 	print("player got hit by a bullet")
+	hide()
 

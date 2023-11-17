@@ -7,7 +7,7 @@ class_name VolleyChain
 var _idx = 0
 
 # returns the delay required
-func shoot_next(player_pos: Vector2, root: Node2D):
+func shoot_next(player_pos: Vector2, root: Node):
 	var next_idx = _get_next_idx(_idx)
 	var ret = default_delay
 

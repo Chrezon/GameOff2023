@@ -7,13 +7,13 @@ class_name BulletVolley
 @export_range(-180, 180) var _angle_offset : float = 0
 @export var bullet_scene : PackedScene = preload("res://scenes/laser_bullet.tscn")
 
-func shoot(direction: Vector2, root: Node2D):
+func shoot(direction: Vector2, root: Node):
 	pass
 	
 func get_origin() -> Vector2:
 	return Vector2(left_right * globals.viewport_size.x, - 100)
 	
-func _shoot_single(spawn_position: Vector2, direction: Vector2, root: Node2D):
+func _shoot_single(spawn_position: Vector2, direction: Vector2, root: Node):
 	var b = bullet_scene.instantiate()
 	b.rotation = direction.angle() + deg_to_rad(_angle_offset) 
 	b.position = spawn_position
