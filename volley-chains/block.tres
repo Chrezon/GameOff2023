@@ -10,6 +10,7 @@ width = 0.5
 randomize_pos = false
 num_bullets = 20
 left_right = 0.25
+_angle_offset = 0.0
 bullet_scene = ExtResource("1_bn0g4")
 
 [sub_resource type="Resource" id="Resource_xaiqp"]
@@ -18,6 +19,7 @@ width = 0.5
 randomize_pos = false
 num_bullets = 20
 left_right = 0.75
+_angle_offset = 0.0
 bullet_scene = ExtResource("1_bn0g4")
 
 [resource]

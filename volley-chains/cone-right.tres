@@ -10,6 +10,7 @@ arc = 90.0
 randomize_dir = true
 num_bullets = 10
 left_right = 1.0
+_angle_offset = 45.0
 bullet_scene = ExtResource("1_okaca")
 
 [resource]

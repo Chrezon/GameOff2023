@@ -11,6 +11,7 @@ arc = 88.302
 randomize_dir = null
 num_bullets = 10
 left_right = 0.0
+_angle_offset = 0.0
 bullet_scene = ExtResource("1_vn4br")
 
 [sub_resource type="Resource" id="Resource_r7vtw"]
@@ -19,6 +20,7 @@ arc = 94.119
 randomize_dir = false
 num_bullets = 10
 left_right = 0.5
+_angle_offset = 0.0
 bullet_scene = ExtResource("1_vn4br")
 
 [sub_resource type="Resource" id="Resource_b2a11"]
@@ -27,6 +29,7 @@ arc = 112.941
 randomize_dir = false
 num_bullets = 10
 left_right = 1.0
+_angle_offset = 0.0
 bullet_scene = ExtResource("1_vn4br")
 
 [sub_resource type="Resource" id="Resource_tlvam"]
