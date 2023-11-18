@@ -17,8 +17,6 @@ func _ready():
 func _physics_process(delta):
 	var targetVel = Vector2.ZERO
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	targetVel.x = Input.get_axis("move_left", "move_right")
 	targetVel.y = Input.get_axis("move_up", "move_down")
 	targetVel = targetVel.normalized() * current_max_speed

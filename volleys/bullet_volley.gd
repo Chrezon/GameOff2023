@@ -11,7 +11,7 @@ func shoot(direction: Vector2, root: Node):
 	pass
 	
 func get_origin() -> Vector2:
-	return Vector2(left_right * globals.viewport_size.x, - 100)
+	return Vector2(left_right * globals.viewport_size.x, - 50)
 	
 func _shoot_single(spawn_position: Vector2, direction: Vector2, root: Node):
 	var b = bullet_scene.instantiate()
