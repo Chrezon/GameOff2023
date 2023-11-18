@@ -51,6 +51,11 @@ chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_iwxcu"
 
 [node name="Root" type="Node"]
 script = ExtResource("1_nngcc")
+extra_spawners = Array[NodePath]([NodePath("SpinnyRain"), NodePath("Rain"), NodePath("Cone"), NodePath("Pew Pew")])
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
 
 [node name="BulletSpawner" parent="." instance=ExtResource("1_q277m")]
 position = Vector2(302, -46)
@@ -124,6 +129,7 @@ size_flags_vertical = 4
 text = "QUIT"
 script = ExtResource("13_wtvj2")
 
+[connection signal="timeout" from="Timer" to="." method="increase_difficulty"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="pressed" from="GameOverOverlay/VBoxContainer/Restart" to="GameOverOverlay/VBoxContainer/Restart" method="_change_scene_to_game"]
 [connection signal="pressed" from="GameOverOverlay/VBoxContainer/Main" to="GameOverOverlay/VBoxContainer/Restart" method="_change_scene_to_main"]
