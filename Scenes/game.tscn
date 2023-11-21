@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b8svwbo5lld2r"]
+[gd_scene load_steps=28 format=3 uid="uid://b8svwbo5lld2r"]
 
 [ext_resource type="Script" path="res://scripts/game-manager.gd" id="1_nngcc"]
 [ext_resource type="PackedScene" uid="uid://dy2mf8lbb0bkj" path="res://scenes/bullet_spawner.tscn" id="1_q277m"]
@@ -18,6 +18,8 @@
 [ext_resource type="Script" path="res://scripts/change_scene.gd" id="12_ryti4"]
 [ext_resource type="Script" path="res://scripts/quit.gd" id="13_wtvj2"]
 [ext_resource type="Resource" uid="uid://ccefpi3vw8t01" path="res://volley-chains/pew pew.tres" id="14_1hfld"]
+[ext_resource type="AudioStream" uid="uid://c31oyrk47cypm" path="res://audio/white-noise.wav" id="16_i4hfd"]
+[ext_resource type="Script" path="res://scenes/fade-audio-in.gd" id="17_74hqr"]
 
 [sub_resource type="Resource" id="Resource_vlpql"]
 script = ExtResource("10_u7ufe")
@@ -49,6 +51,67 @@ targeting = "AT PLAYER"
 default_delay = 0.307
 chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_iwxcu")])
 
+[sub_resource type="Animation" id="Animation_vhgua"]
+resource_name = "fade_audio_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Noise:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, -28.294]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/Noise:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_407lf"]
+resource_name = "fade_audio_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Noise:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-29.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/Noise:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_00qv3"]
+_data = {
+"fade_audio_in": SubResource("Animation_vhgua"),
+"fade_audio_out": SubResource("Animation_407lf")
+}
+
 [node name="Root" type="Node"]
 script = ExtResource("1_nngcc")
 extra_spawners = Array[NodePath]([NodePath("SpinnyRain"), NodePath("Rain"), NodePath("Cone"), NodePath("Pew Pew")])
@@ -77,12 +140,23 @@ volley_chains = Array[ExtResource("11_jbkqp")]([ExtResource("14_1hfld")])
 position = Vector2(290, 689)
 ACCELERATION = 4000.0
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
-position = Vector2(-290, -689)
+[node name="BGM" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("4_6yciy")
-volume_db = -10.452
+volume_db = -23.518
 autoplay = true
 bus = &"BGM"
+
+[node name="Noise" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("16_i4hfd")
+volume_db = -80.0
+bus = &"Static"
+script = ExtResource("17_74hqr")
+
+[node name="Anim" type="AnimationPlayer" parent="Player/Noise"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_00qv3")
+}
 
 [node name="Shaders" parent="." instance=ExtResource("5_gd8nm")]
 offset_left = -16.0

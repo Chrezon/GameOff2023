@@ -10,8 +10,14 @@ signal hit
 @onready var current_max_speed = MAX_SPEED_NORMAL
 
 func _ready():
-	globals.change_time_begin.connect(func(): current_max_speed = MAX_SPEED_SLOW )
-	globals.change_time_end.connect(func(): current_max_speed = MAX_SPEED_NORMAL )
+	globals.change_time_begin.connect(
+		func():
+			current_max_speed = MAX_SPEED_SLOW
+	)
+	globals.change_time_end.connect(
+		func():
+			current_max_speed = MAX_SPEED_NORMAL
+	)
 	pass
 
 func _physics_process(delta):
