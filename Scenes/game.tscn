@@ -21,36 +21,6 @@
 [ext_resource type="AudioStream" uid="uid://c31oyrk47cypm" path="res://audio/white-noise.wav" id="16_i4hfd"]
 [ext_resource type="Script" path="res://scenes/fade-audio-in.gd" id="17_74hqr"]
 
-[sub_resource type="Resource" id="Resource_vlpql"]
-script = ExtResource("10_u7ufe")
-width = 1.0
-randomize_pos = true
-num_bullets = 1
-left_right = 0.5
-_angle_offset = 0.0
-bullet_scene = ExtResource("9_eimqf")
-
-[sub_resource type="Resource" id="Resource_rucah"]
-script = ExtResource("11_jbkqp")
-targeting = "AT PLAYER"
-default_delay = 0.523
-chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_vlpql")])
-
-[sub_resource type="Resource" id="Resource_iwxcu"]
-script = ExtResource("10_u7ufe")
-width = 1.0
-randomize_pos = true
-num_bullets = 1
-left_right = 0.5
-_angle_offset = 3.186
-bullet_scene = ExtResource("12_715a4")
-
-[sub_resource type="Resource" id="Resource_62drp"]
-script = ExtResource("11_jbkqp")
-targeting = "AT PLAYER"
-default_delay = 0.307
-chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_iwxcu")])
-
 [sub_resource type="Animation" id="Animation_vhgua"]
 resource_name = "fade_audio_in"
 length = 3.0
@@ -112,17 +82,65 @@ _data = {
 "fade_audio_out": SubResource("Animation_407lf")
 }
 
+[sub_resource type="Resource" id="Resource_vlpql"]
+script = ExtResource("10_u7ufe")
+width = 1.0
+randomize_pos = true
+num_bullets = 1
+left_right = 0.5
+_angle_offset = 0.0
+bullet_scene = ExtResource("9_eimqf")
+
+[sub_resource type="Resource" id="Resource_rucah"]
+script = ExtResource("11_jbkqp")
+targeting = "AT PLAYER"
+default_delay = 0.523
+chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_vlpql")])
+
+[sub_resource type="Resource" id="Resource_iwxcu"]
+script = ExtResource("10_u7ufe")
+width = 1.0
+randomize_pos = true
+num_bullets = 1
+left_right = 0.5
+_angle_offset = 3.186
+bullet_scene = ExtResource("12_715a4")
+
+[sub_resource type="Resource" id="Resource_62drp"]
+script = ExtResource("11_jbkqp")
+targeting = "AT PLAYER"
+default_delay = 0.307
+chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_iwxcu")])
+
 [node name="Root" type="Node"]
 script = ExtResource("1_nngcc")
 extra_spawners = Array[NodePath]([NodePath("SpinnyRain"), NodePath("Rain"), NodePath("Cone"), NodePath("Pew Pew")])
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 20.0
-autostart = true
+[node name="Noise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_i4hfd")
+volume_db = -80.0
+bus = &"Static"
+script = ExtResource("17_74hqr")
+
+[node name="Anim" type="AnimationPlayer" parent="Noise"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_00qv3")
+}
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6yciy")
+volume_db = -23.518
+autoplay = true
+bus = &"BGM"
 
 [node name="BulletSpawner" parent="." instance=ExtResource("1_q277m")]
 position = Vector2(302, -46)
 volley_chains = Array[ExtResource("11_jbkqp")]([ExtResource("2_2d4we"), ExtResource("4_5gpk5"), ExtResource("3_k3x7a"), ExtResource("7_fqfc1"), ExtResource("5_f8db0"), ExtResource("6_feaxp")])
+
+[node name="DifficultyIncreaseTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
 
 [node name="SpinnyRain" parent="." instance=ExtResource("1_q277m")]
 volley_chains = Array[ExtResource("11_jbkqp")]([SubResource("Resource_rucah")])
@@ -139,24 +157,6 @@ volley_chains = Array[ExtResource("11_jbkqp")]([ExtResource("14_1hfld")])
 [node name="Player" parent="." instance=ExtResource("3_6xlg1")]
 position = Vector2(290, 689)
 ACCELERATION = 4000.0
-
-[node name="BGM" type="AudioStreamPlayer" parent="Player"]
-stream = ExtResource("4_6yciy")
-volume_db = -23.518
-autoplay = true
-bus = &"BGM"
-
-[node name="Noise" type="AudioStreamPlayer" parent="Player"]
-stream = ExtResource("16_i4hfd")
-volume_db = -80.0
-bus = &"Static"
-script = ExtResource("17_74hqr")
-
-[node name="Anim" type="AnimationPlayer" parent="Player/Noise"]
-root_node = NodePath("../../..")
-libraries = {
-"": SubResource("AnimationLibrary_00qv3")
-}
 
 [node name="Shaders" parent="." instance=ExtResource("5_gd8nm")]
 offset_left = -16.0
@@ -203,7 +203,7 @@ size_flags_vertical = 4
 text = "QUIT"
 script = ExtResource("13_wtvj2")
 
-[connection signal="timeout" from="Timer" to="." method="increase_difficulty"]
+[connection signal="timeout" from="DifficultyIncreaseTimer" to="." method="increase_difficulty"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="pressed" from="GameOverOverlay/VBoxContainer/Restart" to="GameOverOverlay/VBoxContainer/Restart" method="_change_scene_to_game"]
 [connection signal="pressed" from="GameOverOverlay/VBoxContainer/Main" to="GameOverOverlay/VBoxContainer/Restart" method="_change_scene_to_main"]
