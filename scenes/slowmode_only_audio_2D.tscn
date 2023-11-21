@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://nbboibmkxxov"]
+
+[ext_resource type="AudioStream" uid="uid://c31oyrk47cypm" path="res://audio/white-noise.wav" id="1_djpra"]
+[ext_resource type="Script" path="res://scripts/fade-audio-in.gd" id="2_m8mhi"]
+
+[sub_resource type="Animation" id="Animation_qg702"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:stream_paused")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_01e1v"]
+resource_name = "fade_audio_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:stream_paused")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhb6l"]
+_data = {
+"fade_audio_in": SubResource("Animation_qg702"),
+"fade_audio_out": SubResource("Animation_01e1v")
+}
+
+[node name="Noise" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_djpra")
+volume_db = -53.3333
+autoplay = true
+stream_paused = true
+bus = &"Static"
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+root_node = NodePath(".")
+libraries = {
+"": SubResource("AnimationLibrary_uhb6l")
+}
+script = ExtResource("2_m8mhi")

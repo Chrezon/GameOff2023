@@ -28,3 +28,6 @@ texture = ExtResource("1_hti24")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vqjyw")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true

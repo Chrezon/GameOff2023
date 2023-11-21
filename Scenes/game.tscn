@@ -1,14 +1,18 @@
-[gd_scene load_steps=28 format=3 uid="uid://b8svwbo5lld2r"]
+[gd_scene load_steps=27 format=3 uid="uid://b8svwbo5lld2r"]
 
 [ext_resource type="Script" path="res://scripts/game-manager.gd" id="1_nngcc"]
 [ext_resource type="PackedScene" uid="uid://dy2mf8lbb0bkj" path="res://scenes/bullet_spawner.tscn" id="1_q277m"]
 [ext_resource type="Resource" uid="uid://dt6q4avbvpysd" path="res://volley-chains/testVolleyChain.tres" id="2_2d4we"]
+[ext_resource type="PackedScene" uid="uid://q8cyejwuq2pd" path="res://scenes/slowmode_only_audio.tscn" id="2_2ued0"]
 [ext_resource type="PackedScene" uid="uid://cni0jemq8506v" path="res://scenes/player.tscn" id="3_6xlg1"]
 [ext_resource type="Resource" uid="uid://cn524y7djws6m" path="res://volley-chains/big-cone.tres" id="3_k3x7a"]
+[ext_resource type="PackedScene" uid="uid://nbboibmkxxov" path="res://scenes/slowmode_only_audio_2D.tscn" id="4_4sxy6"]
 [ext_resource type="Resource" uid="uid://co1adwyr62chv" path="res://volley-chains/big-rain.tres" id="4_5gpk5"]
 [ext_resource type="AudioStream" uid="uid://3u03humnxqpx" path="res://audio/Sonic R _Super Sonic Racing_ Music.mp3" id="4_6yciy"]
 [ext_resource type="Resource" uid="uid://cq1y2ak3ot7gf" path="res://volley-chains/cone-left.tres" id="5_f8db0"]
 [ext_resource type="PackedScene" uid="uid://qa6itpvncmyv" path="res://scenes/shaders.tscn" id="5_gd8nm"]
+[ext_resource type="AudioStream" uid="uid://bvggmj38p5x72" path="res://audio/combined.wav" id="5_gehob"]
+[ext_resource type="Script" path="res://scripts/move_to_closest_in_group.gd" id="5_kmm4l"]
 [ext_resource type="Resource" uid="uid://c5k2b451pdsn1" path="res://volley-chains/cone-right.tres" id="6_feaxp"]
 [ext_resource type="Resource" uid="uid://878nbraj7wlw" path="res://volley-chains/block.tres" id="7_fqfc1"]
 [ext_resource type="PackedScene" uid="uid://cs8vev2hyqpxt" path="res://scenes/spinny_bullet.tscn" id="9_eimqf"]
@@ -18,69 +22,6 @@
 [ext_resource type="Script" path="res://scripts/change_scene.gd" id="12_ryti4"]
 [ext_resource type="Script" path="res://scripts/quit.gd" id="13_wtvj2"]
 [ext_resource type="Resource" uid="uid://ccefpi3vw8t01" path="res://volley-chains/pew pew.tres" id="14_1hfld"]
-[ext_resource type="AudioStream" uid="uid://c31oyrk47cypm" path="res://audio/white-noise.wav" id="16_i4hfd"]
-[ext_resource type="Script" path="res://scenes/fade-audio-in.gd" id="17_74hqr"]
-
-[sub_resource type="Animation" id="Animation_vhgua"]
-resource_name = "fade_audio_in"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player/Noise:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-80.0, -28.294]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player/Noise:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_407lf"]
-resource_name = "fade_audio_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player/Noise:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-29.0, -80.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player/Noise:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_00qv3"]
-_data = {
-"fade_audio_in": SubResource("Animation_vhgua"),
-"fade_audio_out": SubResource("Animation_407lf")
-}
 
 [sub_resource type="Resource" id="Resource_vlpql"]
 script = ExtResource("10_u7ufe")
@@ -116,23 +57,24 @@ chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_iwxcu"
 script = ExtResource("1_nngcc")
 extra_spawners = Array[NodePath]([NodePath("SpinnyRain"), NodePath("Rain"), NodePath("Cone"), NodePath("Pew Pew")])
 
-[node name="Noise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_i4hfd")
-volume_db = -80.0
-bus = &"Static"
-script = ExtResource("17_74hqr")
-
-[node name="Anim" type="AnimationPlayer" parent="Noise"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_00qv3")
-}
-
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6yciy")
 volume_db = -23.518
 autoplay = true
 bus = &"BGM"
+
+[node name="Noise" parent="." instance=ExtResource("2_2ued0")]
+autoplay = true
+
+[node name="Glitch" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_4sxy6")]
+stream = ExtResource("5_gehob")
+volume_db = -80.0
+stream_paused = false
+max_distance = 200.0
+panning_strength = 6.0
+script = ExtResource("5_kmm4l")
+player = NodePath("../Player")
+group_name = "bullet"
 
 [node name="BulletSpawner" parent="." instance=ExtResource("1_q277m")]
 position = Vector2(302, -46)
