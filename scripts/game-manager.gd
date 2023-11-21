@@ -19,4 +19,4 @@ func increase_difficulty():
 	print("enabled " + get_node(s).name)
 	
 	if extra_spawners.is_empty():
-		$Timer.stop()
+		$DifficultyIncreaseTimer.stop()
