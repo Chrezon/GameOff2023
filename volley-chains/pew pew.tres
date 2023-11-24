@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="VolleyChain" load_steps=6 format=3 uid="uid://ccefpi3vw8t01"]
 
-[ext_resource type="PackedScene" uid="uid://clclknhwktilt" path="res://scenes/laser_bullet.tscn" id="1_mwuak"]
+[ext_resource type="PackedScene" uid="uid://d1bh3brfq6jy" path="res://scenes/small_bullet.tscn" id="1_u6xam"]
 [ext_resource type="Script" path="res://volleys/cone_volley.gd" id="2_cvrkg"]
 [ext_resource type="Script" path="res://volley-chains/volley-chain.gd" id="3_0eglu"]
 
@@ -11,7 +11,7 @@ randomize_dir = true
 num_bullets = 1
 left_right = 0.0
 _angle_offset = 0.0
-bullet_scene = ExtResource("1_mwuak")
+bullet_scene = ExtResource("1_u6xam")
 
 [sub_resource type="Resource" id="Resource_wjyid"]
 script = ExtResource("2_cvrkg")
@@ -20,7 +20,7 @@ randomize_dir = true
 num_bullets = 1
 left_right = 1.0
 _angle_offset = 0.0
-bullet_scene = ExtResource("1_mwuak")
+bullet_scene = ExtResource("1_u6xam")
 
 [resource]
 script = ExtResource("3_0eglu")

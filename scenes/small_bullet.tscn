@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1bh3brfq6jy"]
+
+[ext_resource type="PackedScene" uid="uid://clclknhwktilt" path="res://scenes/laser_bullet.tscn" id="1_j56xq"]
+
+[node name="bullet" instance=ExtResource("1_j56xq")]
+speed = 400.0
+
+[node name="graphics" parent="." index="0"]
+position = Vector2(-3, 0)
+scale = Vector2(0.407407, 1)

@@ -67,7 +67,6 @@ _data = {
 stream = ExtResource("1_djpra")
 volume_db = -53.3333
 autoplay = true
-stream_paused = true
 bus = &"Static"
 
 [node name="Anim" type="AnimationPlayer" parent="."]
