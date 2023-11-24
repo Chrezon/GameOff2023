@@ -107,7 +107,8 @@ autoplay = true
 [node name="Glitch" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_4sxy6")]
 stream = ExtResource("5_gehob")
 volume_db = -80.0
-max_distance = 200.0
+max_distance = 150.0
+attenuation = 0.034674
 panning_strength = 6.0
 script = ExtResource("5_kmm4l")
 player = NodePath("../Player")
