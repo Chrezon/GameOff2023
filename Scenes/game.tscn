@@ -91,9 +91,11 @@ targeting = "DOWN"
 default_delay = 0.3
 chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_68v51"), SubResource("Resource_swuda"), SubResource("Resource_v4jmp"), SubResource("Resource_8bpp8"), SubResource("Resource_bkvqg"), SubResource("Resource_pcdw3")])
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" node_paths=PackedStringArray("game_over_overlay", "time_label")]
 script = ExtResource("1_nngcc")
 extra_spawners = Array[NodePath]([NodePath("SpinnyRain"), NodePath("Rain"), NodePath("Arc Burst"), NodePath("Pew Pew")])
+game_over_overlay = NodePath("GameOverOverlay")
+time_label = NodePath("GameOverOverlay/Time")
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6yciy")
@@ -151,6 +153,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Time" type="Label" parent="GameOverOverlay"]
+layout_mode = 0
+offset_right = 579.0
+offset_bottom = 493.0
+theme_override_font_sizes/font_size = 46
+text = "XX:XXs"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOverOverlay"]
 layout_mode = 1

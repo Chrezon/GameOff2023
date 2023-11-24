@@ -1,15 +1,26 @@
 extends Node
 
 @export var extra_spawners : Array[NodePath]
+@export var game_over_overlay : Node
+@export var time_label : Label
+
+@onready var elapsed_scaled_time : float = 0 # in seconds
 
 func _ready():
-	$GameOverOverlay.hide()
+	game_over_overlay.hide()
 	for s in extra_spawners:
 		get_node(s).set_process(false)
 		print("disabled " + get_node(s).name)
+		
+func _process(delta):
+	elapsed_scaled_time += delta * globals.time_scale
 
 func _on_player_hit():
-	$GameOverOverlay.show()
+	var minutes := elapsed_scaled_time / 60
+	var seconds := fmod(elapsed_scaled_time, 60)
+	var milliseconds := fmod(elapsed_scaled_time, 1) * 100
+	time_label.text = "Final Time\n %02dm %02d.%02ds" % [minutes, seconds, milliseconds]
+	game_over_overlay.show()
 
 func increase_difficulty():
 	print("here ")

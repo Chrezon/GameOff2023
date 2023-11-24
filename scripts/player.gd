@@ -34,7 +34,8 @@ func _physics_process(delta):
 	position.y = clamp(position.y, sprite_size.y / 2, globals.viewport_size.y - sprite_size.y / 2)
 
 func handle_bullet_collision():
-	hit.emit()
 	print("player got hit by a bullet")
 	hide()
+	$CollisionShape2D.set_deferred("disabled", true)
+	hit.emit()
 
