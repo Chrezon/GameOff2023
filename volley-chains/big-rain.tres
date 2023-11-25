@@ -16,5 +16,5 @@ bullet_scene = ExtResource("1_hsfh0")
 [resource]
 script = ExtResource("1_qh75k")
 targeting = "DOWN"
-default_delay = 1.0
+default_delay = 15.0
 chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_sg4ap")])

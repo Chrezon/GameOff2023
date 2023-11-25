@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="VolleyChain" load_steps=12 format=3 uid="uid://dwkgxuwmklkno"]
+
+[ext_resource type="PackedScene" uid="uid://d1bh3brfq6jy" path="res://scenes/small_bullet.tscn" id="1_srm38"]
+[ext_resource type="Script" path="res://volleys/cone_volley.gd" id="2_0w7tc"]
+[ext_resource type="PackedScene" uid="uid://clclknhwktilt" path="res://scenes/laser_bullet.tscn" id="3_xr1js"]
+[ext_resource type="Script" path="res://volleys/delay_override.gd" id="4_qxqxa"]
+[ext_resource type="Script" path="res://volley-chains/volley-chain.gd" id="5_22nlb"]
+
+[sub_resource type="Resource" id="Resource_68v51"]
+script = ExtResource("2_0w7tc")
+arc = 150.0
+randomize_dir = false
+num_bullets = 13
+left_right = 0.5
+_angle_offset = 0.0
+bullet_scene = ExtResource("1_srm38")
+
+[sub_resource type="Resource" id="Resource_swuda"]
+script = ExtResource("2_0w7tc")
+arc = 139.0
+randomize_dir = false
+num_bullets = 12
+left_right = 0.5
+_angle_offset = 0.0
+bullet_scene = ExtResource("3_xr1js")
+
+[sub_resource type="Resource" id="Resource_v4jmp"]
+script = ExtResource("4_qxqxa")
+delay = 0.5
+
+[sub_resource type="Resource" id="Resource_8bpp8"]
+script = ExtResource("2_0w7tc")
+arc = 150.0
+randomize_dir = false
+num_bullets = 13
+left_right = 0.5
+_angle_offset = 0.0
+bullet_scene = ExtResource("1_srm38")
+
+[sub_resource type="Resource" id="Resource_bkvqg"]
+script = ExtResource("2_0w7tc")
+arc = 139.0
+randomize_dir = false
+num_bullets = 12
+left_right = 0.5
+_angle_offset = 0.0
+bullet_scene = ExtResource("3_xr1js")
+
+[sub_resource type="Resource" id="Resource_pcdw3"]
+script = ExtResource("4_qxqxa")
+delay = 15.0
+
+[resource]
+script = ExtResource("5_22nlb")
+targeting = "DOWN"
+default_delay = 0.3
+chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_68v51"), SubResource("Resource_swuda"), SubResource("Resource_v4jmp"), SubResource("Resource_8bpp8"), SubResource("Resource_bkvqg"), SubResource("Resource_pcdw3")])

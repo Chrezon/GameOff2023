@@ -1,5 +1,6 @@
 extends Node
 
+@export var hard_spawner : Node
 @export var extra_spawners : Array[NodePath]
 @export var game_over_overlay : Node
 @export var time_label : Label
@@ -8,6 +9,7 @@ extends Node
 
 func _ready():
 	game_over_overlay.hide()
+	hard_spawner.set_process(false)
 	for s in extra_spawners:
 		get_node(s).set_process(false)
 		print("disabled " + get_node(s).name)
@@ -23,7 +25,11 @@ func _on_player_hit():
 	game_over_overlay.show()
 
 func increase_difficulty():
-	print("here ")
+	if not hard_spawner.is_processing():
+		hard_spawner.set_process(true)
+		print("enabled hard spawner")
+		return
+
 	var s = extra_spawners.pick_random()
 	get_node(s).set_process(true)
 	extra_spawners.remove_at(extra_spawners.find(s))

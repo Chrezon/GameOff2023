@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b8svwbo5lld2r"]
+[gd_scene load_steps=25 format=3 uid="uid://b8svwbo5lld2r"]
 
 [ext_resource type="Script" path="res://scripts/game-manager.gd" id="1_nngcc"]
 [ext_resource type="PackedScene" uid="uid://dy2mf8lbb0bkj" path="res://scenes/bullet_spawner.tscn" id="1_q277m"]
@@ -18,13 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://cs8vev2hyqpxt" path="res://scenes/spinny_bullet.tscn" id="9_eimqf"]
 [ext_resource type="Script" path="res://volleys/parallel_volley.gd" id="10_u7ufe"]
 [ext_resource type="Script" path="res://volley-chains/volley-chain.gd" id="11_jbkqp"]
-[ext_resource type="PackedScene" uid="uid://clclknhwktilt" path="res://scenes/laser_bullet.tscn" id="12_715a4"]
+[ext_resource type="Resource" uid="uid://dwkgxuwmklkno" path="res://volley-chains/double-burst.tres" id="12_qew1n"]
 [ext_resource type="Script" path="res://scripts/change_scene.gd" id="12_ryti4"]
 [ext_resource type="Script" path="res://scripts/quit.gd" id="13_wtvj2"]
 [ext_resource type="Resource" uid="uid://ccefpi3vw8t01" path="res://volley-chains/pew pew.tres" id="14_1hfld"]
-[ext_resource type="PackedScene" uid="uid://d1bh3brfq6jy" path="res://scenes/small_bullet.tscn" id="17_rejws"]
-[ext_resource type="Script" path="res://volleys/cone_volley.gd" id="18_vsock"]
-[ext_resource type="Script" path="res://volleys/delay_override.gd" id="19_owab4"]
 
 [sub_resource type="Resource" id="Resource_vlpql"]
 script = ExtResource("10_u7ufe")
@@ -41,59 +38,10 @@ targeting = "AT PLAYER"
 default_delay = 0.58
 chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_vlpql")])
 
-[sub_resource type="Resource" id="Resource_68v51"]
-script = ExtResource("18_vsock")
-arc = 150.0
-randomize_dir = false
-num_bullets = 15
-left_right = 0.5
-_angle_offset = 0.0
-bullet_scene = ExtResource("17_rejws")
-
-[sub_resource type="Resource" id="Resource_swuda"]
-script = ExtResource("18_vsock")
-arc = 135.0
-randomize_dir = false
-num_bullets = 14
-left_right = 0.5
-_angle_offset = 0.0
-bullet_scene = ExtResource("12_715a4")
-
-[sub_resource type="Resource" id="Resource_v4jmp"]
-script = ExtResource("19_owab4")
-delay = 1.0
-
-[sub_resource type="Resource" id="Resource_8bpp8"]
-script = ExtResource("18_vsock")
-arc = 150.0
-randomize_dir = false
-num_bullets = 15
-left_right = 0.5
-_angle_offset = 0.0
-bullet_scene = ExtResource("17_rejws")
-
-[sub_resource type="Resource" id="Resource_bkvqg"]
-script = ExtResource("18_vsock")
-arc = 135.0
-randomize_dir = false
-num_bullets = 14
-left_right = 0.5
-_angle_offset = 0.0
-bullet_scene = ExtResource("12_715a4")
-
-[sub_resource type="Resource" id="Resource_pcdw3"]
-script = ExtResource("19_owab4")
-delay = 20.0
-
-[sub_resource type="Resource" id="Resource_62drp"]
-script = ExtResource("11_jbkqp")
-targeting = "DOWN"
-default_delay = 0.3
-chain = Array[Resource("res://volleys/volley.gd")]([SubResource("Resource_68v51"), SubResource("Resource_swuda"), SubResource("Resource_v4jmp"), SubResource("Resource_8bpp8"), SubResource("Resource_bkvqg"), SubResource("Resource_pcdw3")])
-
-[node name="Root" type="Node" node_paths=PackedStringArray("game_over_overlay", "time_label")]
+[node name="Root" type="Node" node_paths=PackedStringArray("hard_spawner", "game_over_overlay", "time_label")]
 script = ExtResource("1_nngcc")
-extra_spawners = Array[NodePath]([NodePath("SpinnyRain"), NodePath("Rain"), NodePath("Arc Burst"), NodePath("Pew Pew")])
+hard_spawner = NodePath("HardBulletSpawner")
+extra_spawners = Array[NodePath]([NodePath("SpinnyRain"), NodePath("Rain"), NodePath("Pew Pew")])
 game_over_overlay = NodePath("GameOverOverlay")
 time_label = NodePath("GameOverOverlay/Time")
 
@@ -116,22 +64,22 @@ script = ExtResource("5_kmm4l")
 player = NodePath("../Player")
 group_name = "bullet"
 
-[node name="BulletSpawner" parent="." instance=ExtResource("1_q277m")]
+[node name="DefaultBulletSpawner" parent="." instance=ExtResource("1_q277m")]
 position = Vector2(302, -46)
-volley_chains = Array[ExtResource("11_jbkqp")]([ExtResource("2_2d4we"), ExtResource("4_5gpk5"), ExtResource("3_k3x7a"), ExtResource("7_fqfc1"), ExtResource("5_f8db0"), ExtResource("6_feaxp")])
+volley_chains = Array[ExtResource("11_jbkqp")]([ExtResource("2_2d4we"), ExtResource("3_k3x7a"), ExtResource("5_f8db0"), ExtResource("6_feaxp")])
+
+[node name="HardBulletSpawner" parent="." instance=ExtResource("1_q277m")]
+volley_chains = Array[ExtResource("11_jbkqp")]([ExtResource("12_qew1n"), ExtResource("4_5gpk5"), ExtResource("7_fqfc1")])
 
 [node name="DifficultyIncreaseTimer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 15.0
 autostart = true
 
 [node name="SpinnyRain" parent="." instance=ExtResource("1_q277m")]
 volley_chains = Array[ExtResource("11_jbkqp")]([SubResource("Resource_rucah")])
 
 [node name="Rain" parent="." instance=ExtResource("1_q277m")]
-volley_chains = Array[ExtResource("11_jbkqp")]([SubResource("Resource_62drp")])
-
-[node name="Arc Burst" parent="." instance=ExtResource("1_q277m")]
-volley_chains = Array[ExtResource("11_jbkqp")]([SubResource("Resource_62drp")])
+volley_chains = Array[ExtResource("11_jbkqp")]([ExtResource("12_qew1n")])
 
 [node name="Pew Pew" parent="." instance=ExtResource("1_q277m")]
 volley_chains = Array[ExtResource("11_jbkqp")]([ExtResource("14_1hfld")])
