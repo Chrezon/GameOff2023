@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b8svwbo5lld2r"]
+[gd_scene load_steps=26 format=3 uid="uid://b8svwbo5lld2r"]
 
 [ext_resource type="Script" path="res://scripts/game-manager.gd" id="1_nngcc"]
 [ext_resource type="PackedScene" uid="uid://dy2mf8lbb0bkj" path="res://scenes/bullet_spawner.tscn" id="1_q277m"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://scripts/change_scene.gd" id="12_ryti4"]
 [ext_resource type="Script" path="res://scripts/quit.gd" id="13_wtvj2"]
 [ext_resource type="Resource" uid="uid://ccefpi3vw8t01" path="res://volley-chains/pew pew.tres" id="14_1hfld"]
+[ext_resource type="PackedScene" uid="uid://dvy66e78kkg8v" path="res://scenes/parallax_background.tscn" id="23_kt8vv"]
 
 [sub_resource type="Resource" id="Resource_vlpql"]
 script = ExtResource("10_u7ufe")
@@ -44,6 +45,16 @@ hard_spawner = NodePath("HardBulletSpawner")
 extra_spawners = Array[NodePath]([NodePath("SpinnyRain"), NodePath("Rain"), NodePath("Pew Pew")])
 game_over_overlay = NodePath("GameOverOverlay")
 time_label = NodePath("GameOverOverlay/Time")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ParallaxBackground" parent="Control" instance=ExtResource("23_kt8vv")]
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6yciy")
@@ -89,10 +100,8 @@ position = Vector2(290, 689)
 ACCELERATION = 4000.0
 
 [node name="Shaders" parent="." instance=ExtResource("5_gd8nm")]
-offset_left = -16.0
-offset_top = 3.0
-offset_right = -16.0
-offset_bottom = 3.0
+offset_right = 42.0
+offset_bottom = 32.0
 
 [node name="GameOverOverlay" type="Control" parent="."]
 layout_mode = 3

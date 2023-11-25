@@ -5,8 +5,7 @@
 [ext_resource type="Script" path="res://scripts/player-trail.gd" id="3_72aej"]
 
 [sub_resource type="Gradient" id="Gradient_co32h"]
-offsets = PackedFloat32Array(0, 0.216463, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0.216463, 0.216463, 0.216463, 0.216463, 1, 1, 1, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.596078, 0.945098, 1, 0.337255)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqjyw"]
 size = Vector2(16, 16)

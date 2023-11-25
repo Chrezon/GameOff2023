@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvy66e78kkg8v"]
+
+[ext_resource type="Script" path="res://scripts/parallax_layer.gd" id="1_n070m"]
+[ext_resource type="Texture2D" uid="uid://vwfxwqj3dvbk" path="res://images/Bokeh.png" id="2_ox532"]
+
+[sub_resource type="Gradient" id="Gradient_7o2bp"]
+offsets = PackedFloat32Array(0, 0.906627, 1)
+colors = PackedColorArray(0.729392, 1, 0.980384, 1, 3.85046e-07, 0.664486, 0.912477, 1, 5.58317e-06, 0.627512, 0.949108, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pahoq"]
+gradient = SubResource("Gradient_7o2bp")
+fill = 1
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(1, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_pahoq")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(583, 778)
+script = ExtResource("1_n070m")
+auto_scroll_speed = Vector2(20, -35)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
+modulate = Color(1, 1, 1, 0.498039)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -388.0
+offset_top = -72.0
+offset_right = 852.0
+offset_bottom = 752.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ox532")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(583, 778)
+script = ExtResource("1_n070m")
+auto_scroll_speed = Vector2(-20, -50)
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxLayer2"]
+modulate = Color(1, 1, 1, 0.568627)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -97.0
+offset_top = 288.0
+offset_right = 980.0
+offset_bottom = 1034.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ox532")
+expand_mode = 2
+stretch_mode = 5
+flip_h = true
