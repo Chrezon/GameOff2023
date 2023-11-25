@@ -9,8 +9,11 @@
 speed = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
-scale = Vector2(0.203125, 0.203125)
+modulate = Color(1, 1, 1, 0.313726)
+scale = Vector2(0.242188, 0.242188)
 texture = ExtResource("2_mqp08")
+script = ExtResource("3_37y5u")
+degrees_per_second = -20.0
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="1"]
 scale = Vector2(0.132813, 0.132813)
