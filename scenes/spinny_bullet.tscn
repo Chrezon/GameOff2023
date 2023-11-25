@@ -1,18 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs8vev2hyqpxt"]
+[gd_scene load_steps=5 format=3 uid="uid://cs8vev2hyqpxt"]
 
 [ext_resource type="PackedScene" uid="uid://clclknhwktilt" path="res://scenes/laser_bullet.tscn" id="1_i7ecd"]
-[ext_resource type="Texture2D" uid="uid://blwckh0up4yuv" path="res://images/laserRed08.png" id="2_0mxcl"]
+[ext_resource type="Texture2D" uid="uid://dvjtjyrqaewqi" path="res://images/bubble_transparent.png" id="2_8jhbg"]
+[ext_resource type="Texture2D" uid="uid://clkjumt0viprb" path="res://images/BubbleGlow.png" id="2_mqp08"]
 [ext_resource type="Script" path="res://scripts/auto_rotate.gd" id="3_37y5u"]
 
 [node name="bullet" instance=ExtResource("1_i7ecd")]
 speed = 200.0
 
-[node name="graphics" parent="." index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("2_mqp08")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="1"]
+scale = Vector2(0.132813, 0.132813)
+texture = ExtResource("2_8jhbg")
+
+[node name="graphics" parent="." index="2"]
+modulate = Color(1, 1, 1, 0.509804)
 position = Vector2(0, 0)
-scale = Vector2(0.630435, 0.630435)
-texture = ExtResource("2_0mxcl")
+scale = Vector2(0.132813, 0.130737)
+texture = ExtResource("2_8jhbg")
 script = ExtResource("3_37y5u")
 degrees_per_second = 360.0
 
-[node name="TimedDestruct" parent="." index="2"]
+[node name="TimedDestruct" parent="." index="4"]
 wait_time = 30.0

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvy66e78kkg8v"]
+[gd_scene load_steps=7 format=3 uid="uid://dvy66e78kkg8v"]
 
 [ext_resource type="Script" path="res://scripts/parallax_layer.gd" id="1_n070m"]
 [ext_resource type="Texture2D" uid="uid://vwfxwqj3dvbk" path="res://images/Bokeh.png" id="2_ox532"]
+[ext_resource type="Texture2D" uid="uid://wm85egpdk006" path="res://images/lightRays.png" id="3_ggegv"]
+[ext_resource type="Script" path="res://scripts/auto_rotate.gd" id="4_7iogx"]
 
 [sub_resource type="Gradient" id="Gradient_7o2bp"]
 offsets = PackedFloat32Array(0, 0.906627, 1)
@@ -63,3 +65,11 @@ texture = ExtResource("2_ox532")
 expand_mode = 2
 stretch_mode = 5
 flip_h = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.435294)
+position = Vector2(291, -2)
+scale = Vector2(0.539, 0.539)
+texture = ExtResource("3_ggegv")
+script = ExtResource("4_7iogx")
+degrees_per_second = 10.0
