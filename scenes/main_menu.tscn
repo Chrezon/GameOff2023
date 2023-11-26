@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmnvum1oxif4m"]
+[gd_scene load_steps=4 format=3 uid="uid://dmnvum1oxif4m"]
 
 [ext_resource type="Script" path="res://scripts/quit.gd" id="1_qc2fe"]
 [ext_resource type="Script" path="res://scripts/change_scene.gd" id="1_sbvk4"]
+[ext_resource type="PackedScene" uid="uid://dvy66e78kkg8v" path="res://Scenes/parallax_background.tscn" id="3_te44m"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -42,6 +43,8 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "QUIT"
 script = ExtResource("1_qc2fe")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("3_te44m")]
 
 [connection signal="pressed" from="Play" to="Play" method="_change_scene_to_game"]
 [connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]
