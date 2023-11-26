@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/quit.gd" id="1_qc2fe"]
 [ext_resource type="Script" path="res://scripts/change_scene.gd" id="1_sbvk4"]
-[ext_resource type="PackedScene" uid="uid://dvy66e78kkg8v" path="res://Scenes/parallax_background.tscn" id="3_te44m"]
+[ext_resource type="PackedScene" uid="uid://dvy66e78kkg8v" path="res://scenes/parallax_background.tscn" id="3_te44m"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
